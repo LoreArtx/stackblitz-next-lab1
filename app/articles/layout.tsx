@@ -1,7 +1,8 @@
-const Layout = ({children}:{children:React.ReactNode})=>{
+
+const Layout = ({ children }: { children: React.ReactNode }) => {
     return <>
-    <h1 className="bg-black w-full text-white">Articles Header</h1>
-    {children}
+        <h1 className="bg-black w-full text-white">Articles Header</h1>
+        {children}
     </>;
 }
 

@@ -1,0 +1,10 @@
+@tailwind components;
+@tailwind utilities;
+
+.active {
+  @apply text-red-500 font-bold;
+}
+
+.configRules{
+  @apply sm:bg-primary md:bg-secondary lg:bg-success xl:bg-danger 2xl:bg-info
+}

@@ -2,17 +2,22 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import "./anotherGlobals.scss"
+import classes from "./Navbar.module.scss"
+import { Tab, TabList, Tabs } from "@chakra-ui/tabs";
 
-const Navbar = ()=>{
+const Navbar = () => {
     const pathName = usePathname()
 
-    const urls = [{path:"/articles", text:"Articles"},{path:"/profile/settings", text:"Settings"},{path:"/profile/security", text:"Security"}]
-    return <ul className="w-full bg-slate-500 flex justify-center py-[15px] gap-[30px]">
-        {urls.map(u=>{
-        const activeCss = pathName === u.path ? "text-red-500" : "";
-            return <Link key={u.path} className={activeCss} href={u.path}>{u.text}</Link>
-        })}
-    </ul>
+    const urls = [{ path: "/articles", text: "Articles" }, { path: "/profile/settings", text: "Settings" }, { path: "/profile/security", text: "Security" }]
+    return <Tabs isFitted variant='enclosed' className="bg-blue-400">
+        <TabList mb='1em'>
+            {urls.map(u => {
+                const activeCss = pathName === u.path ? classes.active : "text-black";
+                return <Link key={u.path} href={u.path}><Tab className={activeCss}>{u.text}</Tab></Link>
+            })}
+        </TabList>
+    </Tabs>
 }
 
 export default Navbar;
