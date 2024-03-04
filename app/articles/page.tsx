@@ -1,21 +1,22 @@
-interface Post{
-    userId:number;
-    id:number;
-    title:string;
-    body:string;
-}
+import Post from "@/types/IPost";
 
-const ArticlesPage = async ()=>{
+const ArticlesPage = async () => {
 
-    async function fetchData(){
-        const data = await fetch("https://jsonplaceholder.typicode.com/posts")
-        const articles = await data.json()
-        return articles
+    async function fetchData() {
+        try {
+            const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+            const articles = await response.json();
+            return articles as Post[];
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            throw error;
+        }
     }
+
     const data = await fetchData()
 
     return <div>
-        {data.map((p:Post)=><div key={p.id}>{p.title}</div>)}
+        {data.map(p => <div key={p.id}>{p.title}</div>)}
     </div>
 
 }
