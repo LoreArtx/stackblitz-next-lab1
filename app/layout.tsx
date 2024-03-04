@@ -1,9 +1,7 @@
-import './globals.css';
+import './globals.scss';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import Navbar from './components/Navbar';
-
-const inter = Inter({ subsets: ['latin'] });
+import { ChakraProvider } from '@chakra-ui/react';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,9 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navbar></Navbar>
-        {children}</body>
-    </html>
+      <body className={"nature roboto"}>
+        <ChakraProvider>
+          <Navbar></Navbar>
+          {children}
+        </ChakraProvider>
+      </body>
+    </html >
   );
 }

@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+$body-font: 1.2em 'Roboto', sans-serif;
+$heading-font: 'Montserrat', sans-serif;
+
+.nature{
+    @apply text-green-600 bg-green-100;
+}
+
+.roboto{
+    font:$body-font;
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1, h2{
+    @include center;
+    @apply border-b-2
+}
